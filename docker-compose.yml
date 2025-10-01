@@ -1,0 +1,25 @@
+services:
+  mongodb:
+    image: mongo:latest
+    restart: always
+    container_name: mongodb_container
+    ports:
+      - "27017:27017"
+    # environment:
+      # Optional: set a default root username and password
+      # MONGO_INITDB_ROOT_USERNAME: your_user
+      # MONGO_INITDB_ROOT_PASSWORD: your_password
+      # Or simply use the default setup if no auth is needed initially.
+      # The MongoDB image will run without authentication by default.
+
+      # For a basic setup, you can often omit these environment variables.
+      # If you uncomment these, make sure to replace 'your_user' and 'your_password'.
+
+    volumes:
+      # Use a named volume for persistent data storage
+      - mongo_data:/data/db
+
+# Define the named volume for persistence
+volumes:
+  mongo_data:
+    driver: local

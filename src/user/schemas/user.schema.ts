@@ -14,4 +14,3 @@ export class User {
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
-console.log({ AccountSchema, UserSchema });

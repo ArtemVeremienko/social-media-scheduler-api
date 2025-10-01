@@ -16,6 +16,9 @@ export class Account {
 
   @Prop({ required: true })
   accessToken: string;
+
+  @Prop({ required: true })
+  refreshToken: string;
 }
 
 export const AccountSchema = SchemaFactory.createForClass(Account);

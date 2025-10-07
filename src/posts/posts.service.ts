@@ -2,11 +2,11 @@ import { Injectable } from '@nestjs/common';
 import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
 import { InjectModel } from '@nestjs/mongoose';
-import { Post } from './schemas/post.schema';
 import { Model } from 'mongoose';
+import { Post } from './schemas/post.schema';
 
 @Injectable()
-export class PostService {
+export class PostsService {
   constructor(
     @InjectModel(Post.name) private readonly postModel: Model<Post>,
   ) {}
@@ -16,7 +16,7 @@ export class PostService {
   }
 
   findAll() {
-    return `This action returns all post`;
+    return `This action returns all posts`;
   }
 
   findOne(id: number) {

@@ -1,13 +1,10 @@
-import { BasicStrategy as NativeBasicStrategy } from 'passport-http';
+import { BasicStrategy as PassportBasicStrategy } from 'passport-http';
 import { PassportStrategy } from '@nestjs/passport';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { AuthService } from '../auth.service';
 
 @Injectable()
-export class BasicStrategy extends PassportStrategy(
-  NativeBasicStrategy,
-  'basic',
-) {
+export class BasicStrategy extends PassportStrategy(PassportBasicStrategy) {
   constructor(private authService: AuthService) {
     super();
   }

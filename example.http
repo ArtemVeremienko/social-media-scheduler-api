@@ -1,0 +1,16 @@
+@host=http://localhost:3000
+
+###
+{{host}}/api
+###
+POST {{host}}/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "john",
+  "password": "changeme"
+}
+###
+GET {{host}}/api/profile
+Authorization: Basic john:changeme
+###

@@ -25,17 +25,16 @@ export class UsersService {
   }
 
   async update(id: string, updateUserDto: UpdateUserDto) {
-    return await this.userModel.updateOne({ _id: id }, updateUserDto);
+    return await this.userModel.findByIdAndUpdate(id, updateUserDto);
   }
 
   async remove(id: string) {
-    return await this.userModel.deleteOne({ _id: id });
+    return await this.userModel.findByIdAndDelete(id);
   }
 
   async addAccount(id: string, createAccountDto: CreateAccountDto) {
-    return await this.userModel.findOneAndUpdate(
-      { _id: id },
-      { $addToSet: { connectedAccounts: createAccountDto } },
-    );
+    return await this.userModel.findByIdAndUpdate(id, {
+      $addToSet: { connectedAccounts: createAccountDto },
+    });
   }
 }

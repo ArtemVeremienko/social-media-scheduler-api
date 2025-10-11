@@ -2,13 +2,17 @@
 
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
-import { PublicationStatus, SocialPlatform } from 'src/constants';
+import {
+  PublicationStatus,
+  PublicationStatuses,
+  SocialPlatform,
+  SocialPlatforms,
+} from 'src/constants';
+import { ValuesOf } from 'src/utils/typeHelpers';
 
 // Extract literal value types for strong typing
-export type PlatformValue =
-  (typeof SocialPlatform)[keyof typeof SocialPlatform];
-export type PublicationStatus =
-  (typeof PublicationStatus)[keyof typeof PublicationStatus];
+export type PlatformValue = ValuesOf<typeof SocialPlatform>;
+export type PublicationStatus = ValuesOf<typeof PublicationStatus>;
 
 // Defines the interface for the Publication document (if standalone)
 export type PublicationDocument = Publication & Document;
@@ -20,7 +24,7 @@ export class Publication {
   @Prop({
     type: String,
     required: true,
-    enum: Object.values(SocialPlatform),
+    enum: SocialPlatforms,
   })
   platform: PlatformValue;
 
@@ -36,7 +40,7 @@ export class Publication {
   @Prop({
     type: String,
     required: true,
-    enum: Object.values(PublicationStatus),
+    enum: PublicationStatuses,
     default: PublicationStatus.DRAFT,
   })
   status: PublicationStatus;

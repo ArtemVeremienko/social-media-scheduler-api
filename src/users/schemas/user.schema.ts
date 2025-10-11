@@ -6,10 +6,13 @@ export class User {
   @Prop({ required: true, trim: true, unique: true })
   username: string;
 
-  @Prop({ required: true })
+  @Prop({ required: true, trim: true })
   password: string;
 
-  @Prop({ type: [AccountSchema], default: [] })
+  @Prop({
+    type: [AccountSchema],
+    default: [],
+  })
   connectedAccounts: Account[];
 }
 

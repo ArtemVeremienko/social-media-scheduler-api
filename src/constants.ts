@@ -1,8 +1,10 @@
 export const SocialPlatform = {
-  TIKTOK: 'TikTok',
-  INSTAGRAM: 'Instagram',
-  YOUTUBE: 'YouTube',
+  TIKTOK: 'tiktok',
+  INSTAGRAM: 'instagram',
+  YOUTUBE: 'youtube',
 } as const;
+
+export const SocialPlatforms = Object.values(SocialPlatform);
 
 export const PublicationStatus = {
   DRAFT: 'Draft',
@@ -10,3 +12,5 @@ export const PublicationStatus = {
   PUBLISHED: 'Published',
   ERROR: 'Error',
 } as const;
+
+export const PublicationStatuses = Object.values(PublicationStatus);

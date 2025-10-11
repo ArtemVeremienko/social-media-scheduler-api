@@ -22,7 +22,7 @@ import { BasicStrategy } from './strategies/basic.strategy';
   providers: [
     AuthService,
     BasicStrategy,
-    { provide: APP_GUARD, useClass: BasicAuthGuard }, // TODO: change to JwtAuthGuard
+    // { provide: APP_GUARD, useClass: BasicAuthGuard },
   ],
   exports: [AuthService],
 })
